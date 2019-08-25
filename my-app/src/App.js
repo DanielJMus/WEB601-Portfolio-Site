@@ -1,13 +1,13 @@
 import React from 'react';
 import {HomeContent} from './Components/home-content.jsx';
 import {PhotoshopContent} from './Components/photoshop-content.jsx';
-import {ModelingContent} from './Components/modeling-content.jsx';
 import {GamedevContent} from './Components/gamedev-content.jsx';
+import {ModelingContent} from './Components/modeling-content.jsx';
 import {ContactContent} from './Components/contact-content.jsx';
 import {Navbar} from './Components/navbar.jsx';
 import { Footer } from './Components/footer.jsx';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function Home() {
   return (
@@ -61,7 +61,7 @@ function Contact() {
 
 function AppRouter() {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <Route path="/" exact component={Home} />
         <Route path="/photoshop/" component={Photoshop} />
@@ -69,7 +69,7 @@ function AppRouter() {
         <Route path="/gamedev/" component={Gamedev} />
         <Route path="/contact/" component={Contact} />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
