@@ -16,6 +16,7 @@ const knex = require('knex')({
 
 app.locals.knex = knex
 
+// CORS configuration
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Access-Control-Allow-Methods', ['GET, PUT, POST, DELETE']);
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 const routes = require('./routes')
 
+// API Routing
 router.get('/users', routes.userList.listAllUsersKnex);
 router.get('/users/:id', middlewares.checkID, routes.userList.listSingleUser);
 router.post('/users', jsonParser, routes.userList.postUser);
