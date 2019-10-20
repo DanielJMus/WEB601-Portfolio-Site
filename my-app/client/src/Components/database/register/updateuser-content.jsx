@@ -21,8 +21,10 @@ export class UpdateContent extends React.Component {
              "Password": this.Password.value,
              "Admin": this.Admin.checked,
             })
+        }).then(res => {
+            if (res.status == 201) alert("Successfully updated account.")
+            else alert(res.status)
         });
-        alert("Account updated successfully.");
     }
      
     render() {

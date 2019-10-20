@@ -18,8 +18,11 @@ export class RegisterContent extends React.Component {
              "LastName": this.LastName.value,
              "Email": this.Email.value,
              "Password": this.Password.value,
-            })});
-        alert("Account registered successfully.");
+            })
+        }).then(res => {
+            if (res.status == 201) alert("Successfully created account.")
+            else alert(res.status)
+        });
     }
      
     render() {

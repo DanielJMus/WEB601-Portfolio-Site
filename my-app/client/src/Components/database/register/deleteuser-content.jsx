@@ -15,8 +15,11 @@ export class DeleteContent extends React.Component {
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({
              "ID": this.ID.value,
-            })});
-        alert("Account deleted successfully.");
+            })
+        }).then(res => {
+            if (res.status == 201) alert("Successfully deleted account.")
+            else alert(res.status)
+        });
     }
      
     render() {
