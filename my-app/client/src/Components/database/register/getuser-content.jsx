@@ -57,7 +57,6 @@ export class GetContent extends React.Component {
                         {js && "\nLast Name: " + this.state.js[0].LastName}<br></br>
                         {js && "\nEmail: " + this.state.js[0].Email}<br></br>
                         {js && "\nPassword: " + this.state.js[0].Password}</div>
-                {/* <this.GetUser id={this.state.id}/> */}
             </div>
         )
     }

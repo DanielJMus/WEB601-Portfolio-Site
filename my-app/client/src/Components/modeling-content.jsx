@@ -1,6 +1,7 @@
 import React from 'react';
 import blank from './Images/blank.png'
 import './modeling-content.css';
+import {Link} from 'react-router-dom';
 
 export class ModelingContent extends React.Component {
     render () {
@@ -9,6 +10,8 @@ export class ModelingContent extends React.Component {
                 <br></br>
                 <br></br>
                 <h1>Years of experience in Cinema4D and Blender</h1>
+
+                <h2><Link to="/contact" className="quote-button">Get a Quote</Link></h2>
 
                 <div className="section">
                     <img className="section-image" src={blank}/>

@@ -33,6 +33,19 @@ router.post('/users', jsonParser, routes.userList.postUser);
 router.put('/users/:id', jsonParser, middlewares.checkID, routes.userList.updateUser);
 router.delete('/users/:id', middlewares.checkID, routes.userList.deleteUser);
 
+router.get('/photoshops', routes.photoshopList.listAllPhotoshops);
+router.get('/photoshops/:id', middlewares.checkID, routes.photoshopList.listSinglePhotoshop);
+router.post('/photoshops', jsonParser, routes.photoshopList.postPhotoshop);
+router.put('/photoshops/:id', jsonParser, middlewares.checkID, routes.photoshopList.updatePhotoshop);
+router.delete('/photoshops/:id', middlewares.checkID, routes.photoshopList.deletePhotoshop);
+
+router.get('/gamedev', routes.gamedevList.listAllGameDevs);
+router.get('/gamedev/:id', middlewares.checkID, routes.gamedevList.listSingleGameDev);
+router.post('/gamedev', jsonParser, routes.gamedevList.postGameDev);
+router.put('/gamedev/:id', jsonParser, middlewares.checkID, routes.gamedevList.updateGameDev);
+router.delete('/gamedev/:id', middlewares.checkID, routes.gamedevList.deleteGameDev);
+
+
 app.use('/api', router);
 
 app.listen(config.port, () => {
