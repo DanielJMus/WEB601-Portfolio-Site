@@ -5,6 +5,7 @@ import Gamedev from './Components/gamedev-content.js';
 import Modeling from './Components/modeling-content.js';
 import Contact from './Components/contact-content.js';
 import Login from './Components/database/log-in/login-content.js';
+import Register from './Components/register-content.js';
 import Admin from './Components/database/admin-content.js';
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -25,6 +26,7 @@ class App extends React.Component {
             <Route path="/gamedev/" component={Gamedev} />
             <Route path="/contact/" component={Contact} />
             <Route path="/login/" component={Login}/>
+            <Route path="/register/" component={Register}/>
             <Route path="/admin/" component={Admin} />
           </Switch>
         </BrowserRouter>

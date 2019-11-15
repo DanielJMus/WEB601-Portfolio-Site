@@ -1,6 +1,9 @@
 import React from 'react'
 
-export class Register extends React.Component {
+import { login } from '../../../Actions/action';
+import { connect } from 'react-redux';
+
+class RegisterForm extends React.Component {
     
     constructor() {
         super();
@@ -55,3 +58,20 @@ export class Register extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    console.log("Register");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

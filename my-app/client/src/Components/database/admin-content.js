@@ -1,8 +1,8 @@
 import React from 'react'
-import {Register} from './register/register-content.js';
-import {Get} from './register/getuser-content.js';
-import {Update} from './register/updateuser-content.js';
-import {Delete} from './register/deleteuser-content.js';
+import RegisterForm from './register/register-form';
+import {Get} from './register/getuser-form';
+import {Update} from './register/updateuser-form.js';
+import {Delete} from './register/deleteuser-form.js';
 
 import './admin-content.css';
 
@@ -18,7 +18,7 @@ function GetTab (props)
     switch(parseInt(props.tab))
     {
         case 0:
-            return <Register/>
+            return <RegisterForm/>
         case 1:
             return <Get/>
         case 2:
