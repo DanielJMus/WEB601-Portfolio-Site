@@ -1,5 +1,4 @@
 import React from 'react';
-import blank from './Images/blank.png'
 import './gamedev-content.css';
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,7 @@ import Navbar from './navbar';
 import { Footer } from './footer';
 
 import { connect } from 'react-redux';
-import { login } from '../Reducers/reducer';
+import { login } from '../Actions/action';
 
 class Gamedev extends React.Component {
 

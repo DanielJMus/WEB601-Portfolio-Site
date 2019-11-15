@@ -2,7 +2,7 @@ import React from 'react';
 import './login-content.css';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import { login } from '../../../Reducers/reducer'
+import { login } from '../../../Actions/action'
 
 import Navbar from '../../navbar';
 import {Footer} from '../../footer';
@@ -15,9 +15,6 @@ class Login extends React.Component {
     }
 
     render() {
-
-        let {username, password} = this.state;
-        
         return(
             <div className="content">
                 <Navbar/>
@@ -38,7 +35,7 @@ class Login extends React.Component {
                         <input type="submit" id="input-submit" value="Login"/>
                         </form>
                     </div>
-                    {/* <p>Don't have an account? <Link to="/register">Register now!</Link></p> */}
+                    <p>Don't have an account? <Link to="/register">Register now!</Link></p>
                 </div>
                 <Footer/>
             </div>

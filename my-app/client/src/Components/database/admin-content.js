@@ -10,7 +10,7 @@ import Navbar from '../navbar';
 import {Footer} from '../footer';
 
 import { connect } from 'react-redux';
-import { login } from '../../Reducers/reducer';
+import { login } from '../../Actions/action';
 
 // Return the correct  tab content to embed based on which tab the user is viewing
 function GetTab (props)
@@ -25,15 +25,12 @@ function GetTab (props)
             return <Update/>
         case 3:
             return <Delete/>
+        default:
+            return null;
     }
 }
 
 class Admin extends React.Component {  
-    
-    constructor() {
-        super();
-    }
-
     state = {
         tab: 0,
     }

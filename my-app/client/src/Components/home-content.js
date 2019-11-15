@@ -5,7 +5,7 @@ import './home-content.css';
 import Navbar from './navbar';
 import {Footer} from './footer';
 
-import { login } from '../Reducers/reducer';
+import { login } from '../Actions/action';
 import { connect } from 'react-redux';
 
 export class Home extends React.Component {

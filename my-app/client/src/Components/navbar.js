@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux';
-import { login } from '../Reducers/reducer';
+import { login } from '../Actions/action';
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -25,7 +25,10 @@ class Navbar extends React.Component {
                             !this.props.isLoginSuccess &&
                             <li className="nav-item"><Link to="/login">LOGIN</Link></li>
                         }
-                        {/* <li className="nav-item"><Link to="/admin">ADMIN</Link></li>  */}
+                        {
+                            //this.props.isAdmin &&
+                        /* <li className="nav-item"><Link to="/admin">ADMIN</Link></li>  */
+                        }
                     </ul>
                 </nav>
             </div>

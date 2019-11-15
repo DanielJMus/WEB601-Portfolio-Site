@@ -8,17 +8,12 @@ import Login from './Components/database/log-in/login-content.js';
 import Admin from './Components/database/admin-content.js';
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import auth from "./Auth.js";
 
-import {login } from './Reducers/reducer';
+import {login } from './Actions/action';
 import { connect } from 'react-redux';
 
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render () {
     return (
       <div>

@@ -22,7 +22,7 @@ export class Update extends React.Component {
              "Admin": this.Admin.checked,
             })
         }).then(res => {
-            if (res.status == 201) alert("Successfully updated account.")
+            if (res.status === 201) alert("Successfully updated account.")
             else alert(res.status)
         });
     }

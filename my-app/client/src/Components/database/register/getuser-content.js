@@ -7,7 +7,7 @@ export class Get extends React.Component {
         super();
         this.setID = this.setID.bind(this); 
         this.state = {
-            id: 1,
+            email: "danielmus1999@hotmail.com",
             js: null,
         }  
     } 
@@ -15,7 +15,7 @@ export class Get extends React.Component {
     // Read the user data response json into the state
     getUser() {
         console.log(this.state.id);
-        fetch('http://localhost:4200/api/users/' + this.state.id, {
+        fetch('http://localhost:4200/api/users/' + this.state.email, {
             method: 'get'
         }).then(res =>
             res.json().then(json => {
@@ -28,7 +28,7 @@ export class Get extends React.Component {
     setID(event) {
         event.preventDefault();
         // Change the state, and update the page using the callback
-        this.setState({id:this.ID.value}, this.getUser);
+        this.setState({email:this.email.value}, this.getUser);
     }
 
     componentDidMount () {
@@ -46,7 +46,7 @@ export class Get extends React.Component {
                     <form onSubmit={this.setID}>
                     <label>
                         ID:
-                        <input ref={(ref) => {this.ID = ref}} type="number" id="input-firstname" name="id"/>
+                        <input ref={(ref) => {this.ID = ref}} type="text" id="input-firstname" name="id"/>
                     </label><br></br>
                     <input type="submit"/>
                     </form>

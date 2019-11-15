@@ -19,7 +19,7 @@ export class Register extends React.Component {
              "Password": this.Password.value,
             })
         }).then(res => {
-            if (res.status == 201) alert("Successfully created account.")
+            if (res.status === 201) alert("Successfully created account.")
             else alert(res.status)
         });
     }

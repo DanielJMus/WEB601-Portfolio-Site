@@ -17,7 +17,7 @@ export class Delete extends React.Component {
              "ID": this.ID.value,
             })
         }).then(res => {
-            if (res.status == 201) alert("Successfully deleted account.")
+            if (res.status === 201) alert("Successfully deleted account.")
             else alert(res.status)
         });
     }

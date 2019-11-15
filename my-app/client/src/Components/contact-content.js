@@ -5,7 +5,7 @@ import Navbar from './navbar';
 import { Footer } from './footer';
 
 import { connect } from 'react-redux';
-import { login } from '../Reducers/reducer';
+import { login } from '../Actions/action';
 
 class Contact extends React.Component {
     render () {
