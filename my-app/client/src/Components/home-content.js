@@ -2,8 +2,11 @@ import React from 'react';
 import blank from './Images/blank.png'
 import './home-content.css';
 
-import {Navbar} from './navbar';
+import Navbar from './navbar';
 import {Footer} from './footer';
+
+import { login } from '../Reducers/reducer';
+import { connect } from 'react-redux';
 
 export class Home extends React.Component {
     render () {
@@ -51,3 +54,21 @@ export class Home extends React.Component {
         );
     }
 };
+
+const mapStateToProps = (state) => {
+    console.log("Home");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Home);
+  

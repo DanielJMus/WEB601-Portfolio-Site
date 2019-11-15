@@ -3,10 +3,13 @@ import blank from './Images/blank.png'
 import './modeling-content.css';
 import {Link} from 'react-router-dom';
 
-import {Navbar} from './navbar';
+import Navbar from './navbar';
 import {Footer} from './footer';
 
-export class Modeling extends React.Component {
+import { connect } from 'react-redux';
+import { login } from '../Reducers/reducer';
+
+class Modeling extends React.Component {
     render () {
         return (
             <div className="content">
@@ -56,3 +59,20 @@ export class Modeling extends React.Component {
         );
     }
 };
+
+const mapStateToProps = (state) => {
+    console.log("Modeling");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Modeling);

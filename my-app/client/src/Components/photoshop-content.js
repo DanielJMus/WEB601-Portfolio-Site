@@ -2,10 +2,13 @@ import React from 'react';
 import './photoshop-content.css';
 import { Link } from 'react-router-dom';
 
-import {Navbar} from './navbar';
+import Navbar from './navbar';
 import {Footer} from './footer';
 
-export class Photoshop extends React.Component {
+import { connect } from 'react-redux';
+import { login } from '../Reducers/reducer';
+ 
+class Photoshop extends React.Component {
 
     constructor() {
         super();
@@ -62,3 +65,20 @@ export class Photoshop extends React.Component {
         );
     }
 };
+
+const mapStateToProps = (state) => {
+    console.log("Photoshop");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Photoshop);

@@ -1,24 +1,23 @@
-import React from 'react'
+import React from 'react';
 import './login-content.css';
 import { Link } from "react-router-dom";
-import auth from "../../../Auth.js";
+import { connect } from 'react-redux';
+import { login } from '../../../Reducers/reducer'
 
-import {Navbar} from '../../navbar';
+import Navbar from '../../navbar';
 import {Footer} from '../../footer';
 
-export class Login extends React.Component {
+class Login extends React.Component {
     
     constructor(props) {
-        super();
-        this.handleSubmit = this.handleSubmit.bind(this);
+        super(props);
+        this.state = {}
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        auth.logIn();
-    }
-     
     render() {
+
+        let {username, password} = this.state;
+        
         return(
             <div className="content">
                 <Navbar/>
@@ -27,22 +26,46 @@ export class Login extends React.Component {
                         <h1>Log In</h1>
                     </header>
                     <div className='login-form'>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.onSubmit}>
                         <label>
-                            Email:
-                            <input ref={(ref) => {this.Email = ref}} type="email" id="input-email" name="email"/>
+                            Username:
+                            <input type="username" id="input-email" name="username" onChange={e => this.setState({username: e.target.value})}/>
                         </label><br></br>
                         <label>
                             Password:
-                            <input ref={(ref) => {this.Password = ref}} type="password" id="input-password" name="password"/>
+                            <input type="password" id="input-password" name="password" onChange={e => this.setState({password: e.target.value})}/>
                         </label><br></br>
-                        <input type="submit" id="input-submit"/>
+                        <input type="submit" id="input-submit" value="Login"/>
                         </form>
                     </div>
-                    <p>Don't have an account? <Link to="/register">Register now!</Link></p>
+                    {/* <p>Don't have an account? <Link to="/register">Register now!</Link></p> */}
                 </div>
                 <Footer/>
             </div>
         )
     }
+
+    onSubmit = (e) => {
+        e.preventDefault();
+        let {username, password} = this.state;
+        // this.login = this.login.bind(this);
+        this.props.login(username, password);
+    }
 }
+
+const mapStateToProps = (state) => {
+    console.log("Login");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

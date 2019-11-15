@@ -1,10 +1,13 @@
 import React from 'react';
 import './contact-content.css';
 
-import { Navbar } from './navbar';
+import Navbar from './navbar';
 import { Footer } from './footer';
 
-export class Contact extends React.Component {
+import { connect } from 'react-redux';
+import { login } from '../Reducers/reducer';
+
+class Contact extends React.Component {
     render () {
         return (
             <div className="content">
@@ -31,3 +34,21 @@ export class Contact extends React.Component {
         );
     }
 };
+
+const mapStateToProps = (state) => {
+    console.log("Contact");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Contact);
+  

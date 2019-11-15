@@ -6,8 +6,11 @@ import {Delete} from './register/deleteuser-content.js';
 
 import './admin-content.css';
 
-import {Navbar} from '../navbar';
+import Navbar from '../navbar';
 import {Footer} from '../footer';
+
+import { connect } from 'react-redux';
+import { login } from '../../Reducers/reducer';
 
 // Return the correct  tab content to embed based on which tab the user is viewing
 function GetTab (props)
@@ -25,7 +28,7 @@ function GetTab (props)
     }
 }
 
-export class Admin extends React.Component {  
+class Admin extends React.Component {  
     
     constructor() {
         super();
@@ -56,3 +59,21 @@ export class Admin extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    console.log("Admin");
+    return {
+        isLoginPending: state.isLoginPending,
+        isLoginSuccess: state.isLoginSuccess,
+        isLoginError: state.isLoginError
+    };
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (username, password) => dispatch(login(username, password))
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+  
