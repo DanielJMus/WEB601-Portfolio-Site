@@ -1,13 +1,13 @@
 import React from 'react';
-import {HomeContent} from './Components/home-content.jsx';
-import {PhotoshopContent} from './Components/photoshop-content.jsx';
-import {GamedevContent} from './Components/gamedev-content.jsx';
-import {ModelingContent} from './Components/modeling-content.jsx';
-import {ContactContent} from './Components/contact-content.jsx';
-import {LoginContent} from './Components/database/log-in/login-content.jsx';
-import {AdminContent} from './Components/database/admin-content.jsx';
-import {Navbar} from './Components/navbar.jsx';
-import { Footer } from './Components/footer.jsx';
+import {Home} from './Components/home-content.js';
+import {Photoshop} from './Components/photoshop-content.js';
+import {Gamedev} from './Components/gamedev-content.js';
+import {Modeling} from './Components/modeling-content.js';
+import {Contact} from './Components/contact-content.js';
+import {Login} from './Components/database/log-in/login-content.js';
+import {Admin} from './Components/database/admin-content.js';
+import {Navbar} from './Components/navbar.js';
+import { Footer } from './Components/footer.js';
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import auth from "./Auth.js";
@@ -49,74 +49,74 @@ class App extends React.Component {
   }
 }
 
-function Login() {
-  return (
-    <div className="App">
-      <Navbar auth={auth}/>
-      <LoginContent handler = {auth}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Login() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth}/>
+//       <LoginContent handler = {auth}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
-function Admin() {
-  return (
-    <div className="App">
-      <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
-      <AdminContent auth={auth.state.loggedIn}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Admin() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
+//       <AdminContent auth={auth.state.loggedIn}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
-function Home() {
-  return (
-    <div className="App">
-      <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
-      <HomeContent authenticated={auth.state.loggedIn}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Home() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
+//       <HomeContent authenticated={auth.state.loggedIn}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
-function Photoshop() {
-  return (
-    <div className="App">
-      <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
-      <PhotoshopContent auth={auth.state.loggedIn}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Photoshop() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
+//       <PhotoshopContent auth={auth.state.loggedIn}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
-function Modeling() {
-  return (
-    <div className="App">
-      <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
-      <ModelingContent auth={auth.state.loggedIn}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Modeling() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
+//       <ModelingContent auth={auth.state.loggedIn}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
-function Gamedev() {
-  return (
-    <div className="App">
-      <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
-      <GamedevContent auth={auth.state.loggedIn}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Gamedev() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
+//       <GamedevContent auth={auth.state.loggedIn}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
-function Contact() {
-  return (
-    <div className="App">
-      <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
-      <ContactContent auth={auth.state.loggedIn}/>
-      <Footer/>
-    </div>
-  );
-}
+// function Contact() {
+//   return (
+//     <div className="App">
+//       <Navbar auth={auth.state.loggedIn} logtext={auth.state.loggedInText}/>
+//       <ContactContent auth={auth.state.loggedIn}/>
+//       <Footer/>
+//     </div>
+//   );
+// }
 
 export default App;

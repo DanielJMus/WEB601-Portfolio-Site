@@ -26,6 +26,10 @@
     clear: both;
 }
 
+.quote {
+    text-align: center;
+}
+
 .quote-button {
     padding: 10px;
     width:100px;
