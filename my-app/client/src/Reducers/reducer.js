@@ -70,12 +70,19 @@ export default function reducer(state = {
     }
 }
 
-function sendLoginRequest (username, password) {
+function sendLoginRequest (email, password) {
     return new Promise((resolve, reject) => {
-        if(username == "danielmus1999@hotmail.com" && password == "password") {
-            return resolve(true);
-        } else {
-            return reject(new Error("Invalid username or password"));
-        }
+        fetch('http://localhost:4200/api/users/' + email, {
+            method: 'get'
+        }).then(res =>
+            res.json().then(json => {
+                if(json.length > 0) {
+                    if(json[0].Password == password) {
+                        return resolve(true);
+                    }
+                }
+                return reject(new Error("Invalid username or password"));
+            })
+        );
     });
 }

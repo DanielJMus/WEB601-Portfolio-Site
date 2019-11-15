@@ -28,7 +28,7 @@ const routes = require('./routes')
 
 // API Routing
 router.get('/users', routes.userList.listAllUsersKnex);
-router.get('/users/:id', middlewares.checkID, routes.userList.listSingleUser);
+router.get('/users/:email', routes.userList.getSingleUserLogin);
 router.post('/users', jsonParser, routes.userList.postUser);
 router.put('/users/:id', jsonParser, middlewares.checkID, routes.userList.updateUser);
 router.delete('/users/:id', middlewares.checkID, routes.userList.deleteUser);

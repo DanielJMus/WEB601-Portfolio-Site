@@ -9,24 +9,18 @@ import Admin from './Components/database/admin-content.js';
 import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import auth from "./Auth.js";
-// import Navbar from './Components/navbar.js';
 
 import {login } from './Reducers/reducer';
 import { connect } from 'react-redux';
 
 
 class App extends React.Component {
-// const App = () => {
   constructor(props) {
     super(props);
   }
 
   render () {
     return (
-      // <Navbar/>
-      // <div>
-      //   <Login/>
-      // </div>
       <div>
         <BrowserRouter>
           <Switch>

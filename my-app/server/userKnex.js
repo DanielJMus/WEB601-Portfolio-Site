@@ -36,6 +36,31 @@ function listSingleUser(req, res) {
         .catch(error => res.status(500).json(error))
 }
 
+/* Get information for a single user account on login */
+function getSingleUserLogin(req, res) {
+    // Destructuring 
+    const {
+        knex
+    } = req.app.locals
+    const {
+        email,
+    } = req.params
+    knex
+        .select('ID','FirstName', 'LastName', 'Email', 'Password', 'Admin')
+        .from('tblUsers')
+        .where({
+            Email: `${email}`
+        })
+        .then(data => {
+            if (data.length > 0) {
+                return res.status(200).json(data)
+            } else {
+                return res.status(404).json(`User with username or password ${id} not found.`);
+            }
+        })
+        .catch(error => res.status(500).json(error))
+}
+
 /* Add a user account to the database */
 function postUser(req, res) {
     // Destructuring 
@@ -102,6 +127,7 @@ function deleteUser(req, res) {
 module.exports = {
     listAllUsersKnex,
     listSingleUser,
+    getSingleUserLogin,
     postUser,
     updateUser,
     deleteUser
