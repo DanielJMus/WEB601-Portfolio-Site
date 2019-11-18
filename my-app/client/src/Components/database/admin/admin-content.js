@@ -1,16 +1,16 @@
 import React from 'react'
-import RegisterForm from './register/register-form';
-import {Get} from './register/getuser-form';
-import {Update} from './register/updateuser-form.js';
-import {Delete} from './register/deleteuser-form.js';
+import RegisterForm from './register-form';
+import {Get} from './getuser-form';
+import {Update} from './updateuser-form.js';
+import {Delete} from './deleteuser-form.js';
 
 import './admin-content.css';
 
-import Navbar from '../navbar';
-import {Footer} from '../footer';
+import Navbar from '../../navbar';
+import {Footer} from '../../footer';
 
 import { connect } from 'react-redux';
-import { login } from '../../Actions/action';
+import { login } from '../../../Actions/action';
 
 // Return the correct  tab content to embed based on which tab the user is viewing
 function GetTab (props)

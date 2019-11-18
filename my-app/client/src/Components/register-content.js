@@ -1,6 +1,6 @@
 import React from 'react';
 import './register-content.css';
-import RegisterForm from './database/register/register-form';
+import RegisterForm from './database/admin/register-form';
 
 import Navbar from './navbar';
 import { Footer } from './footer';

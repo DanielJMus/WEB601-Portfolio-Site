@@ -45,6 +45,12 @@ router.post('/gamedev', jsonParser, routes.gamedevList.postGameDev);
 router.put('/gamedev/:id', jsonParser, middlewares.checkID, routes.gamedevList.updateGameDev);
 router.delete('/gamedev/:id', middlewares.checkID, routes.gamedevList.deleteGameDev);
 
+router.get('/models', routes.modelList.listAllModels);
+router.get('/models/:id', middlewares.checkID, routes.modelList.listSingleModel);
+router.post('/models', jsonParser, routes.modelList.postModel);
+router.put('/models/:id', jsonParser, middlewares.checkID, routes.modelList.updateModel);
+router.delete('/models/:id', middlewares.checkID, routes.modelList.deleteModel);
+
 
 app.use('/api', router);
 

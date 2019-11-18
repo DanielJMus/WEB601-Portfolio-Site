@@ -10,7 +10,46 @@ import { connect } from 'react-redux';
 import { login } from '../Actions/action';
 
 class Modeling extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            js: undefined,
+            content: undefined
+        }
+    }
+
+    getJson () {
+        fetch('http://localhost:4200/api/models/', {
+            method: 'get'
+        }).then(res =>
+            res.json().then(json => {
+                this.setState({ js: json});
+            })
+        );
+    }
+
+    getArticles () {
+        var jsonFinal = "";
+        for(var i = 0; i < this.state.js.length; i++) {
+            jsonFinal +=    "<div class='section'>" +
+                                "<div class='section-info'>" +
+                                    "<h2 class='section-title'>" + this.state.js[i].Title +"</h2>" +
+                                    "<p class='section-description'>" + this.state.js[i].Description + "</p>" +
+                                "</div>" +
+                                "<img class='section-image' src=" + this.state.js[i].ImageUrl + "/>" +
+                                "<div class='clear'/>" +
+                            "</div></div>";
+        }
+        return jsonFinal;
+    }
+
+    componentDidMount () {
+        this.getJson();
+    }
+
     render () {
+        const { js } = this.state;
         return (
             <div className="content">
                 <Navbar/>
@@ -21,38 +60,9 @@ class Modeling extends React.Component {
 
                     <h2 className="quote"><Link to="/contact" className="quote-button">Get a Quote</Link></h2>
 
-                    <div className="section">
-                        <img className="section-image" src={blank}/>
-                        <div className="section-info">
-                            <h2 className="section-title">Model 1</h2>
-                            <p className="section-description">
-                            Fusce in lectus purus. Nulla auctor ipsum malesuada congue dictum. Donec at suscipit tellus. Donec a sem nisl. Phasellus ullamcorper libero diam, nec tincidunt orci sollicitudin vel. Ut commodo consectetur ultrices. Nam rhoncus, metus ut hendrerit semper, nunc quam fermentum neque, nec tincidunt libero felis auctor risus. Integer eget est sed quam congue elementum sit amet at mauris.
-                            </p>
-                        </div>
-                        <div className="clear"/>
-                    </div>
+                    {js && <div className="content" dangerouslySetInnerHTML={{ __html: this.getArticles() }}></div>}
 
-                    <div className="section">
-                        <img className="section-image" src={blank}/>
-                        <div className="section-info">
-                            <h2 className="section-title">Model 2</h2>
-                            <p className="section-description">
-                            Fusce in lectus purus. Nulla auctor ipsum malesuada congue dictum. Donec at suscipit tellus. Donec a sem nisl. Phasellus ullamcorper libero diam, nec tincidunt orci sollicitudin vel. Ut commodo consectetur ultrices. Nam rhoncus, metus ut hendrerit semper, nunc quam fermentum neque, nec tincidunt libero felis auctor risus. Integer eget est sed quam congue elementum sit amet at mauris.
-                            </p>
-                        </div>
-                        <div className="clear"/>
-                    </div>
-
-                    <div className="section">
-                        <img className="section-image" src={blank}/>
-                        <div className="section-info">
-                            <h2 className="section-title">Model 3</h2>
-                            <p className="section-description">
-                            Fusce in lectus purus. Nulla auctor ipsum malesuada congue dictum. Donec at suscipit tellus. Donec a sem nisl. Phasellus ullamcorper libero diam, nec tincidunt orci sollicitudin vel. Ut commodo consectetur ultrices. Nam rhoncus, metus ut hendrerit semper, nunc quam fermentum neque, nec tincidunt libero felis auctor risus. Integer eget est sed quam congue elementum sit amet at mauris.
-                            </p>
-                        </div>
-                        <div className="clear"/>
-                    </div>
+                    <div className="clear"/>
                 </div>
                 <Footer/>
             </div>
