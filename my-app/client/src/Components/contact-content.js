@@ -40,7 +40,8 @@ const mapStateToProps = (state) => {
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,
-        isLoginError: state.isLoginError
+        isLoginError: state.isLoginError,
+        isAdministrator: state.isAdministrator
     };
   }
   

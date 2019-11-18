@@ -26,8 +26,8 @@ class Navbar extends React.Component {
                             <li className="nav-item"><Link to="/login">LOGIN</Link></li>
                         }
                         {
-                            //this.props.isAdmin &&
-                        /* <li className="nav-item"><Link to="/admin">ADMIN</Link></li>  */
+                            this.props.isAdministrator &&
+                        <li className="nav-item"><Link to="/admin">ADMIN</Link></li>
                         }
                     </ul>
                 </nav>
@@ -41,7 +41,8 @@ const mapStateToProps = (state) => {
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,
-        isLoginError: state.isLoginError
+        isLoginError: state.isLoginError,
+        isAdministrator: state.isAdministrator
     };
   }
   
