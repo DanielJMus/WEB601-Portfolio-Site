@@ -27,7 +27,11 @@ class Navbar extends React.Component {
                         }
                         {
                             this.props.isAdministrator &&
-                        <li className="nav-item"><Link to="/admin">ADMIN</Link></li>
+                            <li className="nav-item"><Link to="/admin">ADMIN</Link></li>
+                        }
+                        {
+                            this.props.isLoginSuccess &&
+                            <li className="nav-item"><Link to="/admin">LOGOUT</Link></li>
                         }
                     </ul>
                 </nav>

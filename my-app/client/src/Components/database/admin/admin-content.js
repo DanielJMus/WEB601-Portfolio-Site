@@ -39,6 +39,8 @@ class Admin extends React.Component {
         return(
             <div className="content">
                 <Navbar/>
+                {
+                this.props.isAdministrator &&
                 <div className="admin-panel">
                     <header>
                         <h1>Admin Control Panel</h1>
@@ -51,6 +53,16 @@ class Admin extends React.Component {
                         <GetTab tab={this.state.tab}/>
                     </div>
                 </div>
+                }
+                {
+                !this.props.isAdministrator &&
+                <div className="admin-panel">
+                    <header>
+                        <h1>ACCESS DENIED</h1>
+                    </header>
+                    <h2>You do not have access to this page, please log into an Administrator account.</h2>
+                </div>
+                }
                 <Footer/>
             </div>
         )

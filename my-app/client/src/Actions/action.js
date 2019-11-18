@@ -53,6 +53,15 @@ export function login(username, password) {
     }
 }
 
+export function logout() {
+    return dispatch => {
+        dispatch(setLoginPending(true));
+        dispatch(setLoginSuccess(false));
+        dispatch(setLoginError(false));
+        dispatch(setIsAdministrator(false));
+    }
+}
+
 /* Handles login credential checking for user, checks their email and password within
 the user database and returns whether the login was successful or not. */
 function sendLoginRequest (email, password) {
