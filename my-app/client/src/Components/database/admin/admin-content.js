@@ -3,6 +3,9 @@ import RegisterForm from './register-form';
 import {Get} from './getuser-form';
 import {Update} from './updateuser-form.js';
 import {Delete} from './deleteuser-form.js';
+import {PhotoshopPost} from './addPhotoshop-form.js';
+import {PhotoshopUpdate} from './updatePhotoshop-form.js';
+import {PhotoshopDelete} from './deletePhotoshop-form.js';
 
 import './admin-content.css';
 
@@ -25,6 +28,12 @@ function GetTab (props)
             return <Update/>
         case 3:
             return <Delete/>
+        case 4:
+            return <PhotoshopPost/>
+        case 5:
+            return <PhotoshopUpdate/>
+        case 6:
+            return <PhotoshopDelete/>
         default:
             return null;
     }
@@ -48,7 +57,11 @@ class Admin extends React.Component {
                     <button onClick={() => this.setState({tab:0})}>Create Account</button>
                     <button onClick={() => this.setState({tab:1})}>Get Account</button>
                     <button onClick={() => this.setState({tab:2})}>Update Account</button>
-                    <button onClick={() => this.setState({tab:3})}>Delete Account</button>
+                    <button onClick={() => this.setState({tab:3})}>Delete Account</button><br></br>
+
+                    <button onClick={() => this.setState({tab:4})}>Add Photoshop</button>
+                    <button onClick={() => this.setState({tab:5})}>Update Photoshop</button>
+                    <button onClick={() => this.setState({tab:6})}>Delete Photoshop</button>
                     <div className="admin-input-panel">
                         <GetTab tab={this.state.tab}/>
                     </div>

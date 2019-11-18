@@ -16,12 +16,6 @@ class Navbar extends React.Component {
         this.props.logout();
     }
 
-    // logout () {
-
-    //     console.log("Logging out");
-    //     this.props.logout();
-    // }
-
     render () {
         return (
             <div className="nav-bar">
