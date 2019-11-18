@@ -3,12 +3,24 @@ import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux';
 import { login } from '../Actions/action';
+import { logout } from '../Actions/action';
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
     }
+
+    logout = (e) => {
+        e.preventDefault();
+        this.props.logout();
+    }
+
+    // logout () {
+
+    //     console.log("Logging out");
+    //     this.props.logout();
+    // }
 
     render () {
         return (
@@ -31,7 +43,7 @@ class Navbar extends React.Component {
                         }
                         {
                             this.props.isLoginSuccess &&
-                            <li className="nav-item"><Link to="/admin">LOGOUT</Link></li>
+                            <li className="nav-item"><a href="#" onClick={this.logout}>LOGOUT</a></li>
                         }
                     </ul>
                 </nav>
@@ -52,7 +64,8 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = (dispatch) => {
     return {
-        login: (username, password) => dispatch(login(username, password))
+        login: (username, password) => dispatch(login(username, password)),
+        logout: () => dispatch(logout())
     };
   }
   
