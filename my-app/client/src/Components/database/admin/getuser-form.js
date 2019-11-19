@@ -45,7 +45,7 @@ export class Get extends React.Component {
                     <form onSubmit={this.setID}>
                     <label>
                         Email:
-                        <input ref={(ref) => {this.ID = ref}} type="text" id="input-firstname" name="id"/>
+                        <input ref={(ref) => {this.email = ref}} type="text" id="input-firstname" name="id"/>
                     </label><br></br>
                     <input type="submit"/>
                     </form>

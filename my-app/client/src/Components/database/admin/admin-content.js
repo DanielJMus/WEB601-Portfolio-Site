@@ -6,6 +6,8 @@ import {Delete} from './deleteuser-form.js';
 import {PhotoshopPost} from './addPhotoshop-form.js';
 import {PhotoshopUpdate} from './updatePhotoshop-form.js';
 import {PhotoshopDelete} from './deletePhotoshop-form.js';
+import { ModelPost } from './addModel-form';
+import { ModelUpdate } from './updateModel-form';
 
 import './admin-content.css';
 
@@ -14,6 +16,7 @@ import {Footer} from '../../footer';
 
 import { connect } from 'react-redux';
 import { login } from '../../../Actions/action';
+import { ModelDelete } from './deleteModel-form';
 
 // Return the correct  tab content to embed based on which tab the user is viewing
 function GetTab (props)
@@ -34,6 +37,12 @@ function GetTab (props)
             return <PhotoshopUpdate/>
         case 6:
             return <PhotoshopDelete/>
+        case 7:
+            return <ModelPost/>
+        case 8:
+            return <ModelUpdate/>
+        case 9:
+            return <ModelDelete/>
         default:
             return null;
     }
@@ -61,7 +70,15 @@ class Admin extends React.Component {
 
                     <button onClick={() => this.setState({tab:4})}>Add Photoshop</button>
                     <button onClick={() => this.setState({tab:5})}>Update Photoshop</button>
-                    <button onClick={() => this.setState({tab:6})}>Delete Photoshop</button>
+                    <button onClick={() => this.setState({tab:6})}>Delete Photoshop</button><br></br>
+
+                    <button onClick={() => this.setState({tab:7})}>Add Model</button>
+                    <button onClick={() => this.setState({tab:8})}>Update Model</button>
+                    <button onClick={() => this.setState({tab:9})}>Delete Model</button><br></br>
+
+                    <button onClick={() => this.setState({tab:10})}>Add Gamedev</button>
+                    <button onClick={() => this.setState({tab:11})}>Update Gamedev</button>
+                    <button onClick={() => this.setState({tab:12})}>Delete Gamedev</button>
                     <div className="admin-input-panel">
                         <GetTab tab={this.state.tab}/>
                     </div>
