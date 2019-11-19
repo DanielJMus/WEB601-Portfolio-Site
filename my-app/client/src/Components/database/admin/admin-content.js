@@ -21,7 +21,7 @@ import {Footer} from '../../footer';
 import { connect } from 'react-redux';
 import { login } from '../../../Actions/action';
 
-// Return the correct  tab content to embed based on which tab the user is viewing
+// Return the correct settings tab content to embed based on which tab the user is viewing
 function GetTab (props)
 {
     switch(parseInt(props.tab))
@@ -66,7 +66,7 @@ class Admin extends React.Component {
         return(
             <div className="content">
                 <Navbar/>
-                {
+                { /* If the user is not logged in, or is not an administrator, hide the page content. Otherwise render it. */
                 this.props.isAdministrator &&
                 <div className="admin-panel">
                     <header>
@@ -108,8 +108,8 @@ class Admin extends React.Component {
     }
 }
 
+// Retrieve the redux state and add it to the component properties.
 const mapStateToProps = (state) => {
-    console.log("Admin");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

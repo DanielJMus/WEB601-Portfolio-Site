@@ -66,6 +66,7 @@ class Photoshop extends React.Component {
     }
 };
 
+// Retrieve the redux state and add it to the component properties.
 const mapStateToProps = (state) => {
     return {
         isLoginPending: state.isLoginPending,
@@ -75,10 +76,10 @@ const mapStateToProps = (state) => {
     };
   }
   
-  const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         login: (username, password) => dispatch(login(username, password))
     };
-  }
+}
   
   export default connect(mapStateToProps, mapDispatchToProps)(Photoshop);

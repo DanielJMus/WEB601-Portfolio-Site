@@ -1,6 +1,6 @@
 import React from 'react';
 import './login-content.css';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { login } from '../../../Actions/action'
 
@@ -11,10 +11,14 @@ class Login extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = { }
     }
 
     render() {
+        if (this.props.isLoginSuccess) {
+            return <Redirect push to="/" />;
+        }
+
         return(
             <div className="content">
                 <Navbar/>
@@ -45,13 +49,12 @@ class Login extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         let {username, password} = this.state;
-        // this.login = this.login.bind(this);
         this.props.login(username, password);
     }
 }
 
+// Retrieve the redux state and add it to the component properties.
 const mapStateToProps = (state) => {
-    console.log("Login");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

@@ -6,11 +6,6 @@ import { login } from '../Actions/action';
 import { logout } from '../Actions/action';
 
 class Navbar extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
-
     logout = (e) => {
         e.preventDefault();
         this.props.logout();
@@ -37,7 +32,7 @@ class Navbar extends React.Component {
                         }
                         {
                             this.props.isLoginSuccess &&
-                            <li className="nav-item"><a href="#" onClick={this.logout}>LOGOUT</a></li>
+                            <li className="nav-item"><a href="/" onClick={this.logout}>LOGOUT</a></li>
                         }
                     </ul>
                 </nav>
@@ -46,8 +41,8 @@ class Navbar extends React.Component {
     }
 };
 
+// Retrieve the redux state and add it to the component properties.
 const mapStateToProps = (state) => {
-    console.log("Navbar");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,
@@ -56,12 +51,12 @@ const mapStateToProps = (state) => {
     };
   }
   
-  const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         login: (username, password) => dispatch(login(username, password)),
         logout: () => dispatch(logout())
     };
-  }
+}
   
   export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
   

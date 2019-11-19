@@ -3,6 +3,8 @@
     width:60%;
     margin: 0 auto;
     padding-bottom:10px;
+    display:flex;
+    align-items: center;
 }
 
 .section-title {
@@ -17,9 +19,10 @@
 }
 
 .section-image {
-    float:left;
-    width:30%;
+    float:right;
+    width:25%;
     box-shadow: 1px 1px 2px;
+    margin: auto;
 }
 
 .clear {
