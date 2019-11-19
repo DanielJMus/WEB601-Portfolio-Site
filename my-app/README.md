@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## How to Run
 
-###Make sure you have executed portfoliodb.sql using MySQL Workbench, and ensure that config.js matches your user settings to allow the database to load.
+### Make sure you have executed portfoliodb.sql using MySQL Workbench, and ensure that config.js matches your user settings to allow the database to load.
 
 In the project terminal, you can run:
 
