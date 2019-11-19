@@ -7,6 +7,7 @@ export class PhotoshopUpdate extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, updating the specified photoshop data in the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/photoshops/' + this.ID.value, {
@@ -19,10 +20,11 @@ export class PhotoshopUpdate extends React.Component {
              "ImageUrl": this.URL.value
             })
         }).then(res => {
-            if (res.status === 201) alert("Successfully updated account.")
+            if (res.status === 201) alert("Successfully updated photoshop.")
             else alert(res.status)
         });
     }
+
     render() {
         return(
             <div className="content">

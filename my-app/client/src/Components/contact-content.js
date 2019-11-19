@@ -32,6 +32,7 @@ class Contact extends React.Component {
                     <textarea className="input-textarea" ref={(ref) => {this.Content = ref}} type="text" rows="15" name="content"></textarea><br></br>
                     <input className="input-submit" type="submit" value="Submit"></input>
                 </form> }
+                {/* Display a message after the user submits their message */}
                 { this.state.submitted && 
                     <h2 className="input-submitted">Thank you for your inquiry!<br></br>I will try to respond as soon as possible.</h2>
                 }
@@ -46,7 +47,7 @@ class Contact extends React.Component {
         );
     }
 
-    
+    // Submit the mail message, opening the mail app with the contents of the form.
     handleSubmit(e) {
         e.preventDefault();
         this.setState({submitted:true});

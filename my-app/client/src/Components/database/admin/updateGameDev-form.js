@@ -7,6 +7,7 @@ export class GamedevUpdate extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, updating the specified gamedev data in the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/gamedev/' + this.ID.value, {
@@ -24,6 +25,7 @@ export class GamedevUpdate extends React.Component {
             else alert(res.status)
         });
     }
+    
     render() {
         return(
             <div className="content">

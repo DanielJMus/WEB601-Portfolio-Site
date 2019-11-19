@@ -10,6 +10,7 @@ class RegisterForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, adding the specified user data to the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/users', {
@@ -59,20 +60,20 @@ class RegisterForm extends React.Component {
     }
 }
 
+// Retrieve the redux state and add it to the component properties.
 const mapStateToProps = (state) => {
-    console.log("Register");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,
         isLoginError: state.isLoginError,
         isAdministrator: state.isAdministrator
     };
-  }
+}
   
-  const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         login: (username, password) => dispatch(login(username, password))
     };
-  }
+}
   
-  export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

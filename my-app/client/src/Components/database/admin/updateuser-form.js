@@ -8,6 +8,7 @@ export class Update extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, updating the specified user data in the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/users/' + this.ID.value, {

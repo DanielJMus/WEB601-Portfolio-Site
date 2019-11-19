@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import '../App.css';
 
 import { connect } from 'react-redux';
 import { login } from '../Actions/action';
@@ -22,14 +23,17 @@ class Navbar extends React.Component {
                         <li className="nav-item"><Link to="/modeling">3D MODELING</Link></li> 
                         <li className="nav-item"><Link to="/gamedev">GAMEDEV</Link></li> 
                         <li className="nav-item"><Link to="/contact">CONTACT</Link></li> 
+                        {/* Display login button if user is not logged in */}
                         {
                             !this.props.isLoginSuccess &&
                             <li className="nav-item"><Link to="/login">LOGIN</Link></li>
                         }
+                        {/* Display admin panel button if the current user is an admin */}
                         {
                             this.props.isAdministrator &&
                             <li className="nav-item"><Link to="/admin">ADMIN</Link></li>
                         }
+                        {/* Display logout button if the user is logged in */}
                         {
                             this.props.isLoginSuccess &&
                             <li className="nav-item"><a href="/" onClick={this.logout}>LOGOUT</a></li>

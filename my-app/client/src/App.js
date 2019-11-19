@@ -7,7 +7,6 @@ import Contact from './Components/contact-content.js';
 import Login from './Components/database/log-in/login-content.js';
 import Register from './Components/register-content.js';
 import Admin from './Components/database/admin/admin-content.js';
-import './App.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import {login } from './Actions/action';
@@ -37,7 +36,6 @@ class App extends React.Component {
 
   
 const mapStateToProps = (state) => {
-  console.log("App");
   return {
       isLoginPending: state.isLoginPending,
       isLoginSuccess: state.isLoginSuccess,

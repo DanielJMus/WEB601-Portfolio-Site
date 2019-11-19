@@ -18,7 +18,8 @@ class Modeling extends React.Component {
         }
     }
 
-    getJson () {
+    // Retrieve the JSON data of all the model posts
+    getJsonData () {
         fetch('http://localhost:4200/api/models/', {
             method: 'get'
         }).then(res =>
@@ -28,6 +29,7 @@ class Modeling extends React.Component {
         );
     }
 
+    // Format the JSON data of the posts into displayable HTML
     getArticles () {
         var jsonFinal = "";
         for(var i = 0; i < this.state.js.length; i++) {
@@ -44,7 +46,7 @@ class Modeling extends React.Component {
     }
 
     componentDidMount () {
-        this.getJson();
+        this.getJsonData();
     }
 
     render () {

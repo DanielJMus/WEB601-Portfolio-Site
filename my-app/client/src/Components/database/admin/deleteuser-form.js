@@ -8,6 +8,7 @@ export class Delete extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, deleting the specified user data from the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/users/' + this.ID.value, {

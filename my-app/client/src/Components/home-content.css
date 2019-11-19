@@ -1,32 +1,42 @@
-.section {
+.home-section {
     padding:50px;
     width:60%;
     margin: 0 auto;
 }
 
-.section-title {
+.home-section-title {
     margin-bottom:0;
 }
 
-.section-info.right {
+.home-section.right {
+    display:flex;
+    align-items: center;
+}
+
+.home-section.left {
+    display:flex;
+    align-items: center;
+}
+
+.home-section-info.right {
     float:left;
     width:60%;
     text-align: left;
 }
 
-.section-image.right {
-    float:right;
+.home-section-image.right {
+    margin: auto;
     width:30%;
     box-shadow: 1px 1px 2px;
 }
 
-.section-info.left {
-    float:right;
+.home-section-info.left {
+    margin: auto;
     width:60%;
     text-align: right;
 }
 
-.section-image.left {
+.home-section-image.left {
     float:left;
     width:30%;
     box-shadow: 1px 1px 2px;

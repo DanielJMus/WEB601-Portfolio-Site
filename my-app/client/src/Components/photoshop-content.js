@@ -17,6 +17,7 @@ class Photoshop extends React.Component {
         }
     }
 
+    // Retrieve the JSON data of all the photoshop
     getPhotos () {
         fetch('http://localhost:4200/api/photoshops/', {
             method: 'get'
@@ -27,6 +28,7 @@ class Photoshop extends React.Component {
         );
     }
 
+    // Format the JSON data of the photos into their respective columns
     getPhotoColumn (column) {
         var jsonFinal = "";
         for(var i = column; i < this.state.js.length; i+=3) {

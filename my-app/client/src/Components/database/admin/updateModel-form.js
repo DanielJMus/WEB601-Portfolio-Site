@@ -7,6 +7,7 @@ export class ModelUpdate extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, updating the specified model data in the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/models/' + this.ID.value, {
@@ -24,6 +25,7 @@ export class ModelUpdate extends React.Component {
             else alert(res.status)
         });
     }
+    
     render() {
         return(
             <div className="content">

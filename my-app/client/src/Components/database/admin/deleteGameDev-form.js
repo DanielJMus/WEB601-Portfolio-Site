@@ -7,6 +7,7 @@ export class GamedevDelete extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, deleting the specified gamedev data from the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/gamedev/' + this.ID.value, {

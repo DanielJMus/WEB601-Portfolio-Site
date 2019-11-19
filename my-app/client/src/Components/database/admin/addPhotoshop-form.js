@@ -7,6 +7,7 @@ export class PhotoshopPost extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // Submit the form data, adding the new photoshop data to the database.
     handleSubmit(event) {
         event.preventDefault();
         fetch('http://localhost:4200/api/photoshops', {
