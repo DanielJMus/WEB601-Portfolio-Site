@@ -3,8 +3,12 @@
     margin: 0 auto;
 }
 
-#input-submit {
+.input-submit {
     background-color:#FF6E59;
     width:30%;
     height:30px;
+}
+
+.input-submitted {
+    text-align:center;
 }

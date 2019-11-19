@@ -1,5 +1,4 @@
 import React from 'react';
-import blank from './Images/blank.png'
 import './home-content.css';
 
 import Navbar from './navbar';
@@ -46,7 +45,7 @@ export class Home extends React.Component {
                             I have used Cinema4D for 3D Modeling for game dev since 2013, and have sold hundreds of models on online model sites such as TurboSquid, my skills primarily focus on stylized toon models, but I have also created plenty of photorealistic models in order to challenge my ability to model items from the real world as accurately as possible. I have a medium knowledge level of the animation aspect of 3D modeling too, and have rigged many models that I have created in order to be used in game projects.
                         </p>
                     </div>
-                    <img className="section-image left" src={blank}/>
+                    <img className="section-image left" src="https://i.imgur.com/jNxdDUt.png"/>
                     <div className="clear"/>
                 </div>
                 <Footer/>
@@ -56,7 +55,6 @@ export class Home extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log("Home");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

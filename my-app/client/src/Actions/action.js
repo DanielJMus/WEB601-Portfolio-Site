@@ -3,6 +3,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SET_ADMIN = 'SET_ADMIN';
 
+// Whether the site is waiting for the user to try logging in
 export function setLoginPending(isLoginPending) {
     return {
         type: LOGIN_PENDING,
@@ -10,6 +11,7 @@ export function setLoginPending(isLoginPending) {
     };
 }
 
+// Whether the user is successfully logged into their account
 export function setLoginSuccess (isLoginSuccess) {
     return {
         type: LOGIN_SUCCESS,
@@ -17,6 +19,7 @@ export function setLoginSuccess (isLoginSuccess) {
     };
 }
 
+// Any errors that occur when logging into an account
 export function setLoginError (isLoginError) {
     return {
         type: LOGIN_ERROR,
@@ -24,6 +27,7 @@ export function setLoginError (isLoginError) {
     };
 }
 
+// Whether or not the user is an administrator (And has access to the Admin panel)
 export function setIsAdministrator (isAdministrator) {
     return {
         type: SET_ADMIN,
@@ -39,10 +43,10 @@ export function login(username, password) {
         dispatch(setIsAdministrator(false));
 
         sendLoginRequest(username, password)
-            .then(success => {
+            .then(isAdmin => {
                 dispatch(setLoginPending(false));
                 dispatch(setLoginSuccess(true));
-                if(success === true) {
+                if(isAdmin === true) {
                     dispatch(setIsAdministrator(true));
                 }
             })
@@ -53,6 +57,7 @@ export function login(username, password) {
     }
 }
 
+// Log the user out and reset the state values
 export function logout() {
     return dispatch => {
         dispatch(setLoginPending(true));

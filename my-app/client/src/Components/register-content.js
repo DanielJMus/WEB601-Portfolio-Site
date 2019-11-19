@@ -25,7 +25,6 @@ class Register extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log("Register");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

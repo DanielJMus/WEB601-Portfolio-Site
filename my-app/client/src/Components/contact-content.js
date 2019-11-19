@@ -8,6 +8,15 @@ import { connect } from 'react-redux';
 import { login } from '../Actions/action';
 
 class Contact extends React.Component {
+
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = { 
+            submitted: false
+        }
+    }
+
     render () {
         return (
             <div className="content">
@@ -16,13 +25,16 @@ class Contact extends React.Component {
                 <br></br>
                 <div className="contact-content">
                 <h1>Contact Me</h1>
-                <form className="input-form">
+                { !this.state.submitted && <form className="input-form" onSubmit={this.handleSubmit}>
                     <h3>Name:</h3>
-                    <input className="input-name" type="text" name="name"></input><br></br>
+                    <input className="input-name" ref={(ref) => {this.Name = ref}} type="text" name="name"></input><br></br>
                     <h3>Message:</h3>
-                    <textarea className="input-textarea" type="text" rows="15" name="content"></textarea><br></br>
+                    <textarea className="input-textarea" ref={(ref) => {this.Content = ref}} type="text" rows="15" name="content"></textarea><br></br>
                     <input className="input-submit" type="submit" value="Submit"></input>
-                </form>
+                </form> }
+                { this.state.submitted && 
+                    <h2 className="input-submitted">Thank you for your inquiry!<br></br>I will try to respond as soon as possible.</h2>
+                }
                 <div className="clear"/>
                 <br></br>
                 <br></br>
@@ -33,10 +45,16 @@ class Contact extends React.Component {
             </div>
         );
     }
+
+    
+    handleSubmit(e) {
+        e.preventDefault();
+        this.setState({submitted:true});
+        window.location.href = "mailto:danielmus1999@hotmail.com?subject=Inquiry%20from%20" + this.Name.value + "&body=" + this.Content.value;
+    }
 };
 
 const mapStateToProps = (state) => {
-    console.log("Contact");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

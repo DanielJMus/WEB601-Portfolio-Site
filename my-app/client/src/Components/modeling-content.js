@@ -1,5 +1,4 @@
 import React from 'react';
-import blank from './Images/blank.png'
 import './modeling-content.css';
 import {Link} from 'react-router-dom';
 
@@ -71,7 +70,6 @@ class Modeling extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log("Modeling");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

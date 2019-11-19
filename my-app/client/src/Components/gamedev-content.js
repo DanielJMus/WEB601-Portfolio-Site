@@ -41,7 +41,6 @@ class Gamedev extends React.Component {
                             "</div></div>";
         }
         return jsonFinal;
-        //this.setState({content: jsonFinal})
     }
 
     componentDidMount () {
@@ -71,7 +70,6 @@ class Gamedev extends React.Component {
 
   
 const mapStateToProps = (state) => {
-    console.log("Gamedev");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,

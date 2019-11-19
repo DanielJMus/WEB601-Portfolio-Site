@@ -67,7 +67,6 @@ class Photoshop extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    console.log("Photoshop");
     return {
         isLoginPending: state.isLoginPending,
         isLoginSuccess: state.isLoginSuccess,
