@@ -8,6 +8,10 @@ import {PhotoshopUpdate} from './updatePhotoshop-form.js';
 import {PhotoshopDelete} from './deletePhotoshop-form.js';
 import { ModelPost } from './addModel-form';
 import { ModelUpdate } from './updateModel-form';
+import { ModelDelete } from './deleteModel-form';
+import { GamedevPost } from './addGameDev-form';
+import { GamedevUpdate } from './updateGameDev-form';
+import { GamedevDelete } from './deleteGameDev-form';
 
 import './admin-content.css';
 
@@ -16,7 +20,6 @@ import {Footer} from '../../footer';
 
 import { connect } from 'react-redux';
 import { login } from '../../../Actions/action';
-import { ModelDelete } from './deleteModel-form';
 
 // Return the correct  tab content to embed based on which tab the user is viewing
 function GetTab (props)
@@ -43,6 +46,12 @@ function GetTab (props)
             return <ModelUpdate/>
         case 9:
             return <ModelDelete/>
+        case 10:
+            return <GamedevPost/>
+        case 11:
+            return <GamedevUpdate/>
+        case 12:
+            return <GamedevDelete/>
         default:
             return null;
     }
